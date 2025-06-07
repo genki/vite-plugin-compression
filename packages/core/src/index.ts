@@ -62,7 +62,7 @@ export default function (options: VitePluginCompression = {}): Plugin {
       debug('resolvedConfig:', resolvedConfig)
     },
     async closeBundle() {
-      let files = readAllFile(outputPath) || []
+      let files = readAllFile(options.outputDir ?? outputPath) || []
       debug('files:', files)
 
       if (!files.length) return
